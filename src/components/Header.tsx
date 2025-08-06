@@ -1,7 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Brain, Heart, Users } from "lucide-react";
 
-const Header = () => {
+interface HeaderProps {
+  onStartAssessment?: () => void;
+}
+
+const Header = ({ onStartAssessment }: HeaderProps) => {
   return (
     <header className="bg-gradient-hero shadow-soft border-b border-border">
       <div className="container mx-auto px-4 py-6">
@@ -20,7 +24,11 @@ const Header = () => {
               <Heart className="h-4 w-4" />
               <span className="text-sm">Trusted by 10,000+ professionals</span>
             </div>
-            <Button variant="outline" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+            <Button 
+              variant="outline" 
+              className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+              onClick={onStartAssessment}
+            >
               Get Started
             </Button>
           </div>

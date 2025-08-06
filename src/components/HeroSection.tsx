@@ -2,7 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowRight, Brain, Clock, Users, Star } from "lucide-react";
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  onStartAssessment?: () => void;
+}
+
+const HeroSection = ({ onStartAssessment }: HeroSectionProps) => {
   return (
     <section className="py-16 bg-gradient-subtle">
       <div className="container mx-auto px-4">
@@ -18,7 +22,11 @@ const HeroSection = () => {
             Our scientifically-validated assessment provides personalized insights and career guidance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-gradient-primary shadow-medium hover:shadow-strong transition-all duration-300">
+            <Button 
+              size="lg" 
+              className="bg-gradient-primary shadow-medium hover:shadow-strong transition-all duration-300"
+              onClick={onStartAssessment}
+            >
               Start Assessment
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>

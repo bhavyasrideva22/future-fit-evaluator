@@ -8,10 +8,14 @@ import Footer from "@/components/Footer";
 const Index = () => {
   const [showAssessment, setShowAssessment] = useState(false);
 
+  const handleStartAssessment = () => {
+    setShowAssessment(true);
+  };
+
   if (showAssessment) {
     return (
       <div className="min-h-screen bg-background">
-        <Header />
+        <Header onStartAssessment={handleStartAssessment} />
         <AssessmentFlow />
         <Footer />
       </div>
@@ -20,8 +24,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header />
-      <HeroSection />
+      <Header onStartAssessment={handleStartAssessment} />
+      <HeroSection onStartAssessment={handleStartAssessment} />
       <SkillsTraitsSection />
       <Footer />
     </div>
